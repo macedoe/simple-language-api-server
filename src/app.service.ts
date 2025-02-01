@@ -41,7 +41,7 @@ export class AppService {
     private async getExternalSpanishEntry(word: string): Promise<ExternalResponseSpanish[]> {
         const response = await fetch(`${this.apiUrl}spanish/json/${word}?key=${this.apiKeySpanish}`);
         if (!response.ok) {
-            throw new Error(`Unable to fetch thesaurus data for ${word}`);
+            throw new Error(`Unable to fetch spanish data for ${word}`);
         }
 
         const data = (await response.json()) as ExternalResponseSpanish[];

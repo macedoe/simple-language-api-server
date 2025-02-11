@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { ExternalResponseSpanish, ExternalResponseThesaurus, InternalResponseSpanish, InternalResponseThesaurus } from './interfaces';
+import { ExternalResponseSpanish, ExternalResponseThesaurus, InternalResponseSpanish, InternalResponseThesaurus } from '../interfaces';
 
 @Injectable()
-export class AppService {
+export class MerriamApiService {
     constructor(private readonly configService: ConfigService) {}
 
     async getThesaurusEntry(word: string): Promise<InternalResponseThesaurus[]> {
@@ -69,10 +69,10 @@ export class AppService {
     }
 
     private get apiUrl(): string {
-        return this.configService.get<string>('API_URL') || '';
+        return this.configService.get<string>('merriam.host') || '';
     }
 
     private getApiKey(type: 'thesaurus' | 'spanish') {
-        return this.configService.get<string>(`API_KEY_${type.toUpperCase()}`);
+        return this.configService.get<string>(`merriam.${type}`);
     }
 }

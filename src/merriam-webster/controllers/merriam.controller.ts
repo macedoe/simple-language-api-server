@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { MerriamApiService } from '../services';
+import { MerriamApiService } from '../services/merriam-api.service';
 
 @Controller()
 export class MerriamController {

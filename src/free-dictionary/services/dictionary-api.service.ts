@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { InternalResponseThesaurus, WordEntry } from 'src/interfaces';
+import { InternalResponseThesaurus, WordEntry } from 'src/common/interfaces';
 
 @Injectable()
 export class DictionaryApiService {

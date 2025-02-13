@@ -1,18 +1,10 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import freeDictionaryConfig from './config/free-dictionary.config';
-import merriamWebsterConfig from './config/merriam-webster.config';
-import { DictionaryController, MerriamController } from './controllers';
-import { DictionaryApiService, MerriamApiService } from './services';
+import { FreeDictionaryModule } from './free-dictionary/free-dictionary.module';
+import { MerriamWebsterModule } from './merriam-webster/merriam-webster.module';
 
 @Module({
-    imports: [
-        ConfigModule.forRoot({
-            isGlobal: true,
-            load: [freeDictionaryConfig, merriamWebsterConfig]
-        })
-    ],
-    controllers: [DictionaryController, MerriamController],
-    providers: [DictionaryApiService, MerriamApiService]
+    imports: [FreeDictionaryModule, MerriamWebsterModule],
+    controllers: [],
+    providers: []
 })
 export class AppModule {}

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { ExternalResponseSpanish, ExternalResponseThesaurus, InternalResponseSpanish, InternalResponseThesaurus } from '../interfaces';
+import { ExternalResponseSpanish, ExternalResponseThesaurus, InternalResponseSpanish, InternalResponseThesaurus } from 'src/common/interfaces';
 
 @Injectable()
 export class MerriamApiService {

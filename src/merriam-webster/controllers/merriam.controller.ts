@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { MerriamApiService } from '../services/merriam-api.service';
 
-@Controller()
+@Controller('mw')
 export class MerriamController {
     constructor(private readonly apiService: MerriamApiService) {}
 

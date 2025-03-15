@@ -7,9 +7,9 @@ export class DictionaryApiService {
     constructor(private readonly configService: ConfigService) {}
 
     async getDictionaryEntry(word: string): Promise<InternalResponseThesaurus[]> {
-        const data = await this.getExternalDictionaryEntry(word);
-
         const response: InternalResponseThesaurus[] = [];
+
+        const data = await this.getExternalDictionaryEntry(word);
         for (const entry of data) {
             response.push({
                 id: entry.word,

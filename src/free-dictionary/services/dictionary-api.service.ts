@@ -26,7 +26,7 @@ export class DictionaryApiService {
     private async getExternalDictionaryEntry(word: string): Promise<WordEntry[]> {
         const response = await fetch(`${this.apiUrl}${word}`);
         if (!response.ok) {
-            throw new Error(`Unable to fetch dictionary data for ${word}`);
+            throw new Error(`Unable to fetch dictionary data for '${word}'`);
         }
 
         const data = (await response.json()) as WordEntry[];

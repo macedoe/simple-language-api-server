@@ -12,6 +12,13 @@ export class MerriamController {
 
     @Get('/spanish/:word')
     async getSpanishDefinition(@Param('word') word: string) {
-        return await this.apiService.getSpanishDefinition(word);
+        try {
+            return await this.apiService.getSpanishDefinition(word);
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                return { error: error.message };
+            }
+            return { error: 'An unknown error occurred' };
+        }
     }
 }

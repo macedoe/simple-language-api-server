@@ -28,6 +28,9 @@ export class MerriamApiService {
 
         const response: InternalResponseSpanish[] = [];
         for (const entry of data) {
+            if (!entry?.shortdef || entry.shortdef.length === 0) {
+                throw new Error(`No definition found for '${word}'`);
+            }
             response.push({
                 id: entry.meta.id,
                 definitions: entry.shortdef,

@@ -19,6 +19,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "docker:build": "nest build && sudo docker build -t simple-language-api-server .",
+    "docker:run": "sudo docker run -d -p 3000:3000 --name language-api simple-language-api-server",
     "gcloud:publish": "gcloud run deploy api --source . --region us-west1 --allow-unauthenticated"
   },
   "dependencies": {
